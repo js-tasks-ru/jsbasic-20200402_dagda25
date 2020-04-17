@@ -12,18 +12,3 @@ function makeFriendsList(friends) {
   });
   return ul;
 }
-
-makeFriendsList([
-    {
-        firstName: 'Artsiom',
-        lastName: 'Mezin'
-    },
-    {
-        firstName: 'Ilia',
-        lastName: 'Kantor'
-    },
-    {
-        firstName: 'Christopher',
-        lastName: 'Michael'
-    }
-]);
