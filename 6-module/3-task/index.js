@@ -15,14 +15,13 @@ export default class Carousel {
     let carousel = this.elem.querySelector(".carousel__inner");
     let rightArrow = this.elem.querySelector(".carousel__arrow_right");
     let leftArrow = this.elem.querySelector(".carousel__arrow_left");
-    //let slideWidth = 500;slidesCollection[0].offsetWidth;
     let currentSlide = 1;
     let rotateIndex = 0;
     leftArrow.style.display = "none";
 
     rightArrow.addEventListener("click", rotateRight);
     function rotateRight(event){
-      let slide= document.querySelector(".carousel__slide");
+      let slide = document.querySelector(".carousel__slide");
       rotateIndex = rotateIndex - slide.offsetWidth;
       carousel.style.transform = `translateX(${rotateIndex}px)`;
       currentSlide++;
@@ -34,7 +33,7 @@ export default class Carousel {
 
     leftArrow.addEventListener("click", rotateLeft);
     function rotateLeft(event){
-      let slide= document.querySelector(".carousel__slide");
+      let slide = document.querySelector(".carousel__slide");
       rotateIndex = rotateIndex + slide.offsetWidth;
       carousel.style.transform = `translateX(${rotateIndex}px)`;
       currentSlide--;
