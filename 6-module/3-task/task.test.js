@@ -18,7 +18,7 @@ describe('6-module-3-task', () => {
     document.body.append(sut.elem);
 
     carouselInner = sut.elem.querySelector('.carousel__inner');
-    sut.elem.style.width = '500px';
+    sut.elem.style.width = '988px';
 
     carouselArrowRight = sut.elem.querySelector('.carousel__arrow_right');
     carouselArrowLeft = sut.elem.querySelector('.carousel__arrow_left');
@@ -47,7 +47,7 @@ describe('6-module-3-task', () => {
       it('при клике по кнопке "вперёд", должна переключать на один слайд вперёд', () => {
         carouselArrowRight.dispatchEvent(clickEvent);
 
-        expect(carouselInner.style.transform).toBe("translateX(-500px)");
+        expect(carouselInner.style.transform).toBe("translateX(-988px)");
       });
     });
 
@@ -60,7 +60,7 @@ describe('6-module-3-task', () => {
       it('при клике по кнопке "назад", должна переключать на один слайд назад', () => {
         carouselArrowLeft.dispatchEvent(clickEvent);
 
-        expect(carouselInner.style.transform).toBe('translateX(-500px)');
+        expect(carouselInner.style.transform).toBe('translateX(-988px)');
       });
     });
 
