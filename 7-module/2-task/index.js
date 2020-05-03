@@ -1,24 +1,39 @@
-import createElement from './assets/lib/create-element.js';
+//import createElement from '../../assets/lib/create-element.js';
 
 export default class Modal {
   constructor() {
     this.elem = document.createElement('div');
     this.elem.classList.add("modal");
 
-    this.render();
+    this.elem.innerHTML = `
+      <div class="modal__overlay"></div>
+      <div class="modal__inner">
+        <div class="modal__header">
+          <button type="button" class="modal__close">
+            <img src="/assets/images/icons/cross-icon.svg" alt="close-icon" />
+          </button>
+          <h3 class="modal__title">
+          </h3>
+        </div>
+        <div class="modal__body">
+        </div>
+      </div>
+    `
 
     let body = document.querySelector("body");
     let closeButton = this.elem.querySelector(".modal__close");
     closeButton.addEventListener("click", function(){
-      let modal = document.querySelector(".modal");
-        modal.remove();
+      let popup = document.querySelector(".modal");
+        if (popup) {
+          popup.remove();
+        }
         body.classList.remove("is-modal-open");
     });
 
     document.addEventListener("keydown", function(event){
-      let modal = document.querySelector(".modal");
-      if (event.code === "Escape") {
-        modal.remove();
+      let popup = document.querySelector(".modal");
+      if (event.code === "Escape" && popup) {
+        popup.remove();
         body.classList.remove("is-modal-open");
       }
     });
@@ -27,32 +42,8 @@ export default class Modal {
   open() {
     let body = document.querySelector("body");
     let container = body.querySelector(".container");
-    container.append(this.elem);
+    body.append(this.elem);
     body.classList.add("is-modal-open");
-  }
-
-  render() {
-    this.elem.innerHTML = `
-      <!--Прозрачная подложка перекрывающая интерфейс-->
-      <div class="modal__overlay"></div>
-
-      <div class="modal__inner">
-        <div class="modal__header">
-          <!--Кнопка закрытия модального окна-->
-          <button type="button" class="modal__close">
-            <img src="/assets/images/icons/cross-icon.svg" alt="close-icon" />
-          </button>
-
-          <h3 class="modal__title">
-            Вот сюда нужно добавлять заголовок
-          </h3>
-        </div>
-
-        <div class="modal__body">
-          A сюда нужно добавлять содержимое тела модального окна
-        </div>
-      </div>
-    `
   }
 
   setTitle(title) {
@@ -69,8 +60,10 @@ export default class Modal {
 
   close() {
     let body = document.querySelector("body");
-    let modal = document.querySelector(".modal");
-    modal.remove();
+    let popup = document.querySelector(".modal");
+    if (popup) {
+      popup.remove();
+    }
     body.classList.remove("is-modal-open");
   }
 
