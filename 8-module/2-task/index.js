@@ -14,6 +14,7 @@ export default class ProductGrid {
       maxSpiciness: 3, // числа от 0 до 4
       category: 'soups' // уникальный идентификатор категории товара
     };
+    //this.updateFilter(filters);
   }
 
   render(products) {
@@ -28,13 +29,13 @@ export default class ProductGrid {
     this.elem.append(inner);
   }
 
-  updateFilter(filters, products) {
-    let filteredProducts = products.filter((el) => {
+  updateFilter(filters) {
+    let filteredProducts = this.products.filter((el) => {
       return filters.noNuts !== el.nuts;
     })
-    /*.filter((el) => {
+    .filter((el) => {
       return filters.vegeterianOnly === el.vegeterian;
-    })*/
+    })
     .filter((el) => {
       return filters.maxSpiciness >= el.spiciness;
     })
@@ -52,6 +53,7 @@ export default class ProductGrid {
 
     });
     this.elem.append(inner);
+    console.log(this.elem.querySelectorAll('.card'));
   }
 
   
