@@ -45,11 +45,12 @@ export default class CartIcon {
       this.elem.style.top = "";
       this.elem.style.left = "";
     }
-    let leftIndent = Math.min(
-      document.querySelector('.container').getBoundingClientRect().right + 20,
-      document.documentElement.clientWidth - this.elem.offsetWidth - 10
-    ) + 'px'
-    if (this.elem.getBoundingClientRect().top < 0) {
+
+    if (this.elem && this.elem.getBoundingClientRect().top < 0) {
+      let leftIndent = Math.min(
+        document.querySelector('.container').getBoundingClientRect().right + 20,
+        document.documentElement.clientWidth - this.elem.offsetWidth - 10
+      ) + 'px';
       this.elem.style.position = "fixed";
       this.elem.style.top = "50px";
       this.elem.style.left = leftIndent;
