@@ -8,13 +8,13 @@ export default class ProductGrid {
     this.products = products;
     this.render(products);
     this.filters = {};
-    let filters = {
+    /*let filters = {
       noNuts: true, // true/false
-      vegeterianOnly: false, // true/false
+      vegeterianOnly: true, // true/false
       maxSpiciness: 3, // числа от 0 до 4
       category: 'soups' // уникальный идентификатор категории товара
     };
-    //this.updateFilter(filters);
+    this.updateFilter(filters);*/
   }
 
   render(products) {
@@ -31,15 +31,19 @@ export default class ProductGrid {
 
   updateFilter(filters) {
     let filteredProducts = this.products.filter((el) => {
+      if (!filters.noNuts) return true;
       return filters.noNuts !== el.nuts;
     })
     .filter((el) => {
+      if (!filters.vegeterianOnly) return true;
       return filters.vegeterianOnly === el.vegeterian;
     })
     .filter((el) => {
+      if (!filters.maxSpiciness) return true;
       return filters.maxSpiciness >= el.spiciness;
     })
     .filter((el) => {
+      if (!filters.category) return true;
       return filters.category === el.category;
     });
     this.elem.innerHTML = "";
@@ -53,7 +57,6 @@ export default class ProductGrid {
 
     });
     this.elem.append(inner);
-    console.log(this.elem.querySelectorAll('.card'));
   }
 
   
