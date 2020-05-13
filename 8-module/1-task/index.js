@@ -39,6 +39,26 @@ export default class CartIcon {
   }
 
   updatePosition() {
-    // ваш код ...
+    let isMobile = document.documentElement.clientWidth <= 767;
+    if (isMobile) {
+      this.elem.style.position = "absolute";
+      this.elem.style.top = "";
+      this.elem.style.left = "";
+    }
+
+    if (this.elem && this.elem.getBoundingClientRect().top < 0) {
+      let leftIndent = Math.min(
+        document.querySelector('.container').getBoundingClientRect().right + 20,
+        document.documentElement.clientWidth - this.elem.offsetWidth - 10
+      ) + 'px';
+      this.elem.style.position = "fixed";
+      this.elem.style.top = "50px";
+      this.elem.style.left = leftIndent;
+    }
+    if (window.pageYOffset === 0) {
+      this.elem.style.position = "absolute";
+      this.elem.style.top = "";
+      this.elem.style.left = "";
+    }
   }
 }
