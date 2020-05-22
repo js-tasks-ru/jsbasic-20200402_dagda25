@@ -170,6 +170,7 @@ export default class Cart {
     if (!document.querySelector("body").classList.contains('is-modal-open')) return;
 
     let modalBody = document.querySelector('.modal');
+    if (!modalBody) return;
     let productId = cartItem.product.id;
     let productCount = modalBody.querySelector(`[data-product-id="${productId}"] .cart-counter__count`);
     let productPrice = modalBody.querySelector(`[data-product-id="${productId}"] .cart-product__price`);
@@ -198,9 +199,9 @@ export default class Cart {
       body: new FormData(form)
     });
 
-    let result = await response.json();
+    //let result = await response.json();
 
-    if(result) {
+    if(response) {
       this.cartItems = [];
       this.cartIcon.update(this);
       modalBody.innerHTML = `<div class="modal__body-inner">
@@ -212,6 +213,7 @@ export default class Cart {
       </div>`;
       modalTitle.innerHTML = `Success!`;
     }
+    console.log(this.getTotalCount());
 
   };
 
@@ -221,6 +223,6 @@ export default class Cart {
     }
   }
 
-  clear
+
 }
 
