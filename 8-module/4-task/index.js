@@ -199,20 +199,17 @@ export default class Cart {
       body: new FormData(form)
     });
 
-    //let result = await response.json();
+    this.cartItems = [];
+    this.cartIcon.update(this);
+    modalBody.innerHTML = `<div class="modal__body-inner">
+      <p>
+        Order successful! Your order is being cooked :) <br>
+        We’ll notify you about delivery time shortly.<br>
+        <img src="/assets/images/delivery.gif">
+      </p>
+    </div>`;
+    modalTitle.innerHTML = `Success!`;
 
-    if(response) {
-      this.cartItems = [];
-      this.cartIcon.update(this);
-      modalBody.innerHTML = `<div class="modal__body-inner">
-        <p>
-          Order successful! Your order is being cooked :) <br>
-          We’ll notify you about delivery time shortly.<br>
-          <img src="/assets/images/delivery.gif">
-        </p>
-      </div>`;
-      modalTitle.innerHTML = `Success!`;
-    }
     console.log(this.getTotalCount());
 
   };
