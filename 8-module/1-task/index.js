@@ -54,6 +54,7 @@ export default class CartIcon {
       this.elem.style.position = "fixed";
       this.elem.style.top = "50px";
       this.elem.style.left = leftIndent;
+      this.elem.style.zIndex = 999;
     }
     if (window.pageYOffset === 0) {
       this.elem.style.position = "absolute";
