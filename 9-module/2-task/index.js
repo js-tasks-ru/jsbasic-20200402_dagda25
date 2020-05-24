@@ -57,7 +57,6 @@ export default class Main {
     });
 
     body.addEventListener('product-add', (event) => {
-      console.log(event);
       let added = [];
       for (let product of result) {
         if (product.id === event.detail) added = product;
