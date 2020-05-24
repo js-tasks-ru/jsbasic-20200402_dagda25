@@ -209,9 +209,6 @@ export default class Cart {
       </p>
     </div>`;
     modalTitle.innerHTML = `Success!`;
-
-    console.log(this.getTotalCount());
-
   };
 
   addEventListeners() {
@@ -219,7 +216,6 @@ export default class Cart {
       this.renderModal();
     }
   }
-
 
 }
 

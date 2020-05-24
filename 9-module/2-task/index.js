@@ -44,7 +44,6 @@ export default class Main {
     });
 
     let result = await response.json();
-    console.log(result);
     let productsGrid = new ProductsGrid(result);
     let gridContainer  = body.querySelector('[data-products-grid-holder]');
     gridContainer.innerHTML = "";
